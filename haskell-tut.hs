@@ -5,8 +5,4 @@ type Nome = String
 type Idade = Integer
 type RG = String
 
-somaIdade :: (Pessoa -> Idade) -> Integer -> Idade
-somaIdade pessoaA x = (idade pessoaA) + x
-
-somaIdades :: [Pessoa] -> Idade
-somaIdades = foldr somaIdade 0
+somaIdades = foldr ((+)(idade)) 0
