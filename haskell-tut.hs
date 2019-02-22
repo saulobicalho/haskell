@@ -6,6 +6,6 @@ type Idade = Integer
 type RG = String
 
 
-achaIdade p = p->Idade
+achaIdade p = idade p
 
 somaIdades p = foldr ((+).(idade p)) 0
