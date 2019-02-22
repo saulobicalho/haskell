@@ -8,4 +8,4 @@ type RG = String
 
 achaIdade p = idade p
 
- - somaIdades p = foldr ((+).(idade p)) 0
+-- somaIdades p = foldr ((+).(idade p)) 0
