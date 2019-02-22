@@ -5,4 +5,7 @@ type Nome = String
 type Idade = Integer
 type RG = String
 
+
+achaIdade p = p->Idade
+
 somaIdades p = foldr ((+).(idade p)) 0
