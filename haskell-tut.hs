@@ -5,4 +5,4 @@ type Nome = String
 type Idade = Integer
 type RG = String
 
-somaIdades = foldr ((+).(Pessoa -> Idade)) 0
+somaIdades p = foldr ((+).(idade p)) 0
