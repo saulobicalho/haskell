@@ -1,6 +1,6 @@
 {-- Exercicio Lista 1--}
 {-- queestao 1 --}
-import Prelude hiding (map, dropWhile,break,words)
+import Prelude hiding (map, dropWhile,break,words,concat)
 import Data.Char
 
 map::(a->b)->[a]->[b]
