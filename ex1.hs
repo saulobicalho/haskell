@@ -1,6 +1,7 @@
 {-- Exercicio Lista 1--}
 {-- queestao 1 --}
 import Prelude hiding (map)
+import Data.Char
 
 map::(a->b)->[a]->[b]
 map f [] = []
