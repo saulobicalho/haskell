@@ -10,5 +10,5 @@ map f (x:xs) = f x : map f (xs)
 
 mudaPraMinusc:: String -> String
 mudaPraMinusc = map toLower
- | map toLower [] =[]
+ | map toLower [] = []
  | map toLower [x:xs] = toLower x : map toLower xs
