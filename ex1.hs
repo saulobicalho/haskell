@@ -44,3 +44,7 @@ contaOcs [x] = [(1,x)]
 contaOcs (x1:x2:xs)
      | x1 == x2, ((yi, yv):ys) <- contaOcs (x2:xs) = (yi+1, yv) : ys
      | otherwise = (1, x1) : contaOcs (x2:xs)
+
+{--Questao 7--}
+concat:: [[a]] -> [a]
+concat = foldr (++) []
