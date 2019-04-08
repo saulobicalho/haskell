@@ -1,6 +1,6 @@
 {-- Exercicio Lista 1--}
 {-- queestao 1 --}
-import Prelude hiding (map)
+import Prelude hiding (map, dropWhile)
 import Data.Char
 
 map::(a->b)->[a]->[b]
@@ -19,5 +19,3 @@ dropWhile p [] = []
 dropWhile p (a:x)
  | p a = dropWhile p x
  | otherwise = a : x
-
- 
