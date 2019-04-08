@@ -19,3 +19,8 @@ dropWhile p [] = []
 dropWhile p (a:x)
  | p a = dropWhile p x
  | otherwise = a : x
+
+{--Questao 4--}
+
+break::(a-> Bool) -> [a] -> ([a],[a])
+break p = span (not.p)
