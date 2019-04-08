@@ -27,11 +27,6 @@ break p = span (not.p)
 
 {--Questao 5--}
 
-splitWith:: (a->Bool) -> [a] -> [[a]]
-splitWith p = splitWith' p . dropWhile p
-splitWith' p [] = []
-splitWith' p x = x1: splitWith p x2
- where (x1,x2) = break p x
 
 words:: String -> [String]
 words = splitWith isSpace
