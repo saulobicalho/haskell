@@ -15,7 +15,7 @@ achaIdade p = idade p
 somaIdades = foldr ((+).(achaIdade)) 0
 --}
 
---{--ex3
+{--ex3
 
 maisNovo = foldr (min . idade) 999
 
