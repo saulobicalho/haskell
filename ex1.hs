@@ -11,3 +11,13 @@ map f (x:xs) = f x : map f (xs)
 
 mudaPraMinusc:: String -> String
 mudaPraMinusc = map toLower
+
+{--Questao 3--}
+
+dropWhile::(a -> Bool) -> [a] -> [a]
+dropWhile p [] = []
+dropWhile p (a:x)
+ | p a = dropWhile p x
+ | otherwise = a : x
+
+ 
