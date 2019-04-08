@@ -9,5 +9,5 @@ map f (x:xs) = f x : map f (xs)
 {--Questao 2--}
 
 mudaPraMinusc:: String -> String
-mudaPraMinusc [] = map toLower [] =[]
- map toLower [x:xs] = toLower x : map toLower xs
+mudaPraMinusc []      = map toLower [] =[]
+mudaPraMinusc [x:xs]  = map toLower [x:xs] = toLower x : map toLower xs
