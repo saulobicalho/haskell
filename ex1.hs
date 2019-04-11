@@ -1,7 +1,7 @@
 {-- Exercicio Lista 1--}
 {-- queestao 1 --}
 import Prelude hiding (map, dropWhile,break,words,concat)
-import Data.Char
+import Data.Char, Data.List
 
 map::(a->b)->[a]->[b]
 map f [] = []
@@ -48,3 +48,6 @@ contaOcs (x1:x2:xs)
 {--Questao 7--}
 concat:: [[a]] -> [a]
 concat = foldr (++) []
+
+{--Questao 8--}
+palavrasMaisComuns:: Int -> String -> String
