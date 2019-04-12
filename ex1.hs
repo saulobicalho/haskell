@@ -1,5 +1,8 @@
-{-- Exercicio Lista 1--}
+{-- Exercicio Lista 1
+Aluno: Saulo Weikert Bicalho--}
+
 {-- queestao 1 --}
+
 import Prelude hiding (map, dropWhile,break,words,concat)
 import Data.Char
 import Data.List(sort,sortBy)
@@ -47,10 +50,12 @@ contaOcs (x1:x2:xs)
      | otherwise = (1, x1) : contaOcs (x2:xs)
 
 {--Questao 7--}
+
 concat:: [[a]] -> [a]
 concat = foldr (++) []
 
 {--Questao 8--}
+
 palavrasMaisComuns:: Int -> String -> String
 palavrasMaisComuns n = concat .map preencheLinha .take n .sortBy (\(a,_) (b,_) -> compare b a) .contaOcs.sort.words.mudaPraMinusc
 
