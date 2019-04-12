@@ -1,7 +1,8 @@
 {-- Exercicio Lista 1--}
 {-- queestao 1 --}
 import Prelude hiding (map, dropWhile,break,words,concat)
-import Data.Char, Data.List
+import Data.Char
+import Data.List(sort,sortBy)
 
 map::(a->b)->[a]->[b]
 map f [] = []
@@ -51,3 +52,7 @@ concat = foldr (++) []
 
 {--Questao 8--}
 palavrasMaisComuns:: Int -> String -> String
+palavrasMaisComuns n = concat .map preencheLinha .take n .sortBy (\(a,_) (b,_) -> compare b a) .contaOcs.sort.words.mudaPraMinusc
+
+preencheLinha:: (Int,String) -> String
+preencheLinha (a,b) = b ++ " " ++ (show a) ++ "\n"
