@@ -4,4 +4,7 @@
 --Questao 1
 
 retornaTresCaracteres:: [String] -> String
-retornaTresCaracteres = foldl take 3 []
+retornaTresCaracteres = foldl (take 3) []
+
+pegaTres:: Int -> [a] -> [a]
+pegaTres = take 3
