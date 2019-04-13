@@ -3,8 +3,8 @@
 
 --Questao 1
 
-retornaTresCaracteres:: [String] -> String
-retornaTresCaracteres = foldl (take 3) []
+tresPrimeirasLetras:: [String] -> String
+tresPrimeirasLetras = foldr ((++).tomaTres) []
 
-pegaTres:: Int -> [a] -> [a]
-pegaTres = take 3
+tomaTres::  String -> String
+tomaTres = take 3
