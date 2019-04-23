@@ -1,8 +1,5 @@
-Primeira lista de exerccios
-Linguagem Haskell
-Disciplina: Linguagens de Programac~ao
-Prof.: Carlos Camar~ao
-12 de Marco de 2019
+lista1
+
 1. Escreva func~ao map:: (a->b) -> [a] -> [b] que recebe func~ao f e lista
 x e retorna a lista resultante de aplicar f a cada elemento de x.
 Use:
@@ -57,4 +54,8 @@ ocorr^encias dessa palavra em texto.
 Use: mudaPraMinusc, words, sort, contaOcs, sortBy, take, map, concat:
 encadeie chamadas dessas func~oes com a func~ao (.) de composic~ao de
 func~oes.
-2
+
+----------------------------------------------------------------------------
+lista 3
+1)
+Determine o tipo de λ x. λ y. λ z. x z (y z), usando a técnica-informal-de-inferência-de-tipos.
