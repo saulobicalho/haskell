@@ -15,7 +15,7 @@ tomaTres = take 3
 
 --Questao 2 OK
 
-data Pessoa = Pessoa {nome::Nome, idade::Idade, identidade::RG}
+data Pessoa = Pessoa {nome::Nome, idade::Idade, identidade::RG} deriving (Eq)
 type Nome   = String
 type Idade  = Integer
 type RG     = String
@@ -28,15 +28,12 @@ grupo = [maria,carla,alice]
 somaIdades :: [Pessoa] -> Idade
 somaIdades = foldl  (flip((+).idade)) 0
 
---Questao 3 Tirar maria
+--Questao 3
 
+instance Ord Pessoa where
+ p<= p' = idade p <= idade p'
 pessoaMaisNova :: [Pessoa] -> Nome
-pessoaMaisNova = nome.(foldr pegaMaisNovo maria)
-
-pegaMaisNovo :: Pessoa -> Pessoa -> Pessoa
-pegaMaisNovo a b
- | idade a <= idade b = a
- | otherwise = b
+pessoaMaisNova (p:ps)= nome $ foldr min p ps
 
 --Questao 4 OK
 
