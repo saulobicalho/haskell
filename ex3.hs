@@ -93,6 +93,34 @@ f x y
   |otherwise = show y
 
 --b)
+g::(a -> b -> c) -> b -> a -> c
+g  f1 = f2
+  where
+    f2 x y = f1 y x
+
 --c)
+h::(a -> b, a -> c) -> a -> (b,c)
+h (f1, f2) a = h'
+  where
+    h' = (f1 a, f2 a)
+
 --d)
+l::(a -> b, b -> d) -> (a,b) -> (c,d)
+l (f1,f2) (a,b) = (undefined, f2 (f1 a))
+
 --e)
+i::(b -> c) -> (a->b) -> a -> c
+i f2 f1 a = f2(f1 a)
+
+--f)
+j::[(a, b)] -> ([a], [b])
+j xs = foldr j' x xs
+  where
+    j' (a,b) (as,bs) = (a:as, b:bs)
+    x               = ([],[])
+
+--g)
+k::(a -> b -> a) -> a -> [b] -> [a]
+k funcao a [b]= map (k' a) [b]
+  where
+    k' a _ = a
