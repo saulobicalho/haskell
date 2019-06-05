@@ -1,3 +1,164 @@
+﻿lista4
+
+1 Iteradores e Geradores
+1.1 Iteradores
+Iteradores s~ao usados em comandos for para obtenc~ao de cada elemento de uma estrutura de
+dados iteravel, em cada iterac~ao do comando: o primeiro elemento e obtido pela chamada ao
+construtor do iterador e o proximo elemento, em cada iterac~ao do comando for , e obtido por
+chamada ao metodo next.
+Por exemplo, pode-se usar comandos for para obter cada elemento de:
+1. uma lista:
+>>> for i in [1, 2, 3, 4]:
+... print i,
+...
+1
+2
+3
+4
+2. caractere de uma cadeia de caracteres:
+>>> for c in " abcd ":
+... print c
+...
+a
+b
+c
+d
+3. chaves de um dicionario:
+>>> for chave in {"a": 1, "b": 2}:
+... print chave
+...
+a
+b
+4. linhas de um arquivo-texto:
+>>> for lin in open("arq.txt"):
+... print lin
+...
+primeira linha
+segunda linha
+1
+Iteradores s~ao objetos de classes que denem metodos __iter__, para criar um objeto iterador,
+e next, para retornar um (proximo) elemento a cada chamada. Por exemplo, considere a
+denic~ao a seguir, de iterator que se comporta como a func~ao pre-denida xrange (xrange n~ao
+gera toda a lista de valores, como a func~ao range, mas um iterador, i.e. gera os elementos da lista
+um por um em vez de gerar toda a lista):
+c l a s s xrange_ :
+def __init__ (self , n):
+self .i = 0
+self .n = n
+def __iter__ ( self ):
+return self
+def next( self ):
+i f self .i < self .n:
+i = self .i
+self .i += 1
+return i
+e l s e :
+rai s e StopIteration ()
+Exemplo de uso de xrange_ e next:
+>>> y = xrange_ (3)
+>>> y.next()
+0
+>>> y.next()
+1
+>>> y.next()
+2
+>>> y.next()
+Traceback ( most recent call last ):
+File "<stdin >", line 1, in <module >
+File "<stdin >", line 14, in next
+StopIteration
+Exemplos de func~oes que t^em iteradores como argumentos s~ao l i s t e join:
+>>> ",". join (["a", "b", "c"])
+'a,b,c'
+>>> ",". join ({"x": 1, "y": 2})
+'y,x'
+>>> l i s t ("abc")
+['a', 'b', 'c']
+>>> l i s t ({"x": 1, "y": 2})
+['y', 'x']
+Note: i t e r sobre um dicionario e o mesmo que iterkeys: realiza iterac~ao sobre as chaves
+do dicionario.
+Chaves de um dicionario t^em uma ordem arbitraria (n~ao s~ao ordenadas necessariamente na
+ordem em que aparecem no texto).
+Geradores facilitam a gerac~ao de iteradores.
+1.2 Geradores
+Um gerador e um objeto iterador criado por meio do comando yield (veja explicac~ao a seguir)
+ou por meio de uma express~ao geradora. Por exemplo, um objeto gerador pode ser denido
+simplesmente como resultado de chamada a uma func~ao-geradora xrange_ denida como a seguir:
+2
+def xrange_ (n):
+i = 0
+whi le i < n:
+yield i
+i += 1
+O comando yield retorna um objeto gerador (iterador criado via yield). Cada chamada a
+next retorna um valor. Por exemplo:
+>>> x_ = xrange_ (3)
+>>> x_
+<generator object xrange_ at ... >
+>>> x_.next()
+0
+>>> x_.next()
+1
+>>> x_.next()
+2
+>>> x_.next()
+Traceback ( most recent call last ):
+File "<stdin >", line 1, in <module >
+StopIteration
+O uso de yield e um modo de implementar explicitamente a estrategia de avaliac~ao preguicosa
+(um valor e obtido a cada chamada a next, em vez de ser obtido automaticamente quando e usado,
+como ocorre no caso da estrategia de avaliac~ao preguicosa). Em ambos os casos o objetivo e a
+otimizac~ao de espaco (i.e. evitar o armazenamento de todos os valores ao mesmo tempo).
+1.3 Express~oes Geradoras
+Express~oes generadoras geram valores como em uma lista denida por gerac~ao e ltragem, mas
+usam par^enteses em vez de colchetes, criando um gerador (iterador gerado por express~ao geradora):
+>>> xx = (x*x for x in range (10))
+>>> xx
+<generator object <genexpr > at ... >
+>>> l i s t (xx)
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+1.4 Exerccio Resolvido
+Escreva um programa que usa geradores para escrever func~ao que recebe uma cadeia de caracteres
+(string) s e um iterador de nomes de arquivos-texto, e imprima o conteudo de cada linha de cada
+arquivo-texto que contem a cadeia s.
+Soluc~ao:
+3
+def ylins ( arqs ):
+for f in arqs :
+for lin in open(f):
+yield lin
+def grep (s, linhas ):
+return (lin for lin in linhas i f s in lin)
+def printLins ( lins ):
+for lin in lins :
+print lin
+def main (s, arqs ):
+lins = yLins ( arqs )
+lins = grep (s, lins )
+printLins ( lins )
+1.5 Exerccios
+Use geradores (gerados pelo comando yield) para implementar as func~oes a seguir.
+1. Escreva uma func~ao que receba um inteiro n e uma lista de nomes de arquivos como argumentos
+e imprima todas as linhas contidas nos arquivos com tamanho maior que n caracteres.
+2. Escreva um programa que receba uma lista de nomes de arquivos como argumentos e imprima
+i) para cada arquivo, seu nome e o numero de linhas contidas no arquivo, e ii) o numero total
+de linhas contidas nos arquivos.
+3. Escreva uma func~ao enumerate que se comporte como enumerate.
+A func~ao enumerate recebe um iterador it e retorna um iterador sobre pares (i,v), onde i e
+um ndice e v um valor, do iterador it .
+Por exemplo:
+>>> l i s t (enumerate(["a", "b", "c"])
+[(0 , "a"), (1, "b"), (2, "c")]
+>>> for i, c in enumerate(["a", "b", "c"]):
+... print i, c
+...
+0 a
+1 b
+2 c
+4
+
+-------------------------------------------------------------------------------
 lista1
 
 1. Escreva func~ao map:: (a->b) -> [a] -> [b] que recebe func~ao f e lista
