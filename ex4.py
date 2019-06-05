@@ -1,5 +1,5 @@
 #Exercicio 4 - Saulo Weikert Bicalho
-Estrutura de dados iterável.
+"""Estrutura de dados iterável.
 Como obter cada elemento de tal estrutura?
     Através de comandos for.
 Iteradores possuem construtores.
@@ -17,4 +17,20 @@ campos de informação dessa estrutura.
 Pode-se usar o iterador sobre arquivo-texto, para retornar linhas (usa-se o
 termo lin).
 Em todos os casos, a ação executada dentro do comando for é a de impressão,
-print.
+print."""
+
+class xrange_ :
+    def __init__ (self , n):
+        self .i = 0
+        self .n = n
+
+    def __iter__ ( self ):
+        return self
+
+    def next( self ):
+        if self .i < self .n:
+            i = self .i
+            self .i += 1
+            return i
+        e l s e :
+            rai s e StopIteration ()
