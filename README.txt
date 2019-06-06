@@ -1,4 +1,7 @@
-﻿lista4
+
+
+-------------------------------------------------------------------------------
+lista4
 
 1 Iteradores e Geradores
 1.1 Iteradores
@@ -111,7 +114,7 @@ O uso de yield e um modo de implementar explicitamente a estrategia de avalia
 como ocorre no caso da estrategia de avaliac~ao preguicosa). Em ambos os casos o objetivo e a
 otimizac~ao de espaco (i.e. evitar o armazenamento de todos os valores ao mesmo tempo).
 1.3 Express~oes Geradoras
-Express~oes generadoras geram valores como em uma lista denida por gerac~ao e ltragem, mas
+Express~oes generadoras geram valores como em uma lista denida por gerac~ao eltragem, mas
 usam par^enteses em vez de colchetes, criando um gerador (iterador gerado por express~ao geradora):
 >>> xx = (x*x for x in range (10))
 >>> xx
