@@ -1,36 +1,54 @@
-#Exercicio 4 - Saulo Weikert Bicalho
-"""Estrutura de dados iterável.
-Como obter cada elemento de tal estrutura?
-    Através de comandos for.
-Iteradores possuem construtores.
-Ocorrem chamadas aos construtores de iteradores.
-A primeira chamada ao construtor de iterador permite a obtenção do primeiro
-elemento de uma estrutura iterável.
-Elementos seguintes de uma estrutura iterável são obtíveis através de
-iterações do comando for, por meio do método next.
-Exemplo de uso de iterador sobre lista (devolve cada de seus elementos).
-Também se usa o iterador sobre cadeia de caracteres.
-Também se usa sobre chaves de dicionário, embora em enunciado o prof. afirme
-quanto à palavra reservada chave, não se sabe se existe.
-O retorno em cada iteração de um dicionário parece não retornar todos os
-campos de informação dessa estrutura.
-Pode-se usar o iterador sobre arquivo-texto, para retornar linhas (usa-se o
-termo lin).
-Em todos os casos, a ação executada dentro do comando for é a de impressão,
-print."""
+#Lista de Exercicios 4 - Nome: Saulo Weikert Bicalho
+#Exercicio 1
 
-class xrange_ :
-    def __init__ (self , n):
-        self.i = 0
-        self.n = n
+def LinhasMaioresQueN ( n,arqs ):
+    for f in arqs :
+        for lin in open(f):
+            if (len(lin)>n):
+                yield lin
 
-    def __iter__ ( self ):
-        return self
+def main1 (n, arqs ):
+    for linha in LinhasMaioresQueN ( n,arqs ):
+        print ( linha )
 
-    def next( self ):
-        if self.i < self.n:
-            i = self.i
-            self.i += 1
-            return i
-        else :
-            raise StopIteration ()
+#Inicialização do main() para teste
+#main1(40,["arq1.txt", "arq2.txt", "arq3.txt"])
+
+#Exercicio 2
+
+def ProcessaArquivo ( arqs ):
+    totalAbsoluto =0
+    for arq in arqs :
+        totalLinhas=0
+        for lin in open(arq):
+            totalLinhas +=1
+        totalAbsoluto += totalLinhas
+        yield (arq, totalLinhas)
+    print ("Total Absoluto:",totalAbsoluto)
+
+def printSaidas ( arquivos ):
+    for nome, nlinhas in arquivos :
+        print ('Nome do Arquivo:  ' + nome + '  No de Linhas:  ' + str(nlinhas))
+
+def main2 ( arqs ):
+    arquivos = ProcessaArquivo ( arqs )
+    printSaidas ( arquivos )
+
+#Inicialização do main() para teste
+#main2 ( ["arq1.txt", "arq2.txt", "arq3.txt"] )
+
+#Exercicio3
+
+def enumerate_( lista ):
+    i=0
+    for elemento in lista:
+        yield i,elemento
+        i=i+1
+
+def main3(lista):
+    listaEnumerada = enumerate_(lista)
+    for ordem, elem in listaEnumerada:
+        print (ordem, elem)
+
+#Inicialização do main() para teste
+#main3(["a","b","c"])
