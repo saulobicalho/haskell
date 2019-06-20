@@ -18,3 +18,8 @@ sublista( [X|XS], [X|XSS] ) :- sublista( XS, XSS ).
 sublista( [X|XS], [_|XSS] ) :- sublista( [X|XS], XSS ).
 
 % ex5
+subseq([X|L],[X|M]) :- prefix(L,M),!.
+subseq(L,[_|M]) :- subseq(L,M).
+
+prefix([],_).
+prefix([X|L],[X|M]) :- prefix(L,M).
