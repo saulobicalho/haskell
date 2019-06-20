@@ -14,8 +14,8 @@ sufixo(Xs,[Y|Ys]) :- sufixo(Xs,Ys).
 
 % ex4
 sublista( [], _ ).
-sublista( [X|XS], [X|XSS] ) :- sublista( XS, XSS ).
-sublista( [X|XS], [_|XSS] ) :- sublista( [X|XS], XSS ).
+sublista( [X|XS], [X|YS] ) :- sublista( XS, YS ).
+sublista( [X|XS], [_|YS] ) :- sublista( [X|XS], YS ).
 
 % ex5
 subseq([X|L],[X|M]) :- prefix(L,M),!.
@@ -23,3 +23,10 @@ subseq(L,[_|M]) :- subseq(L,M).
 
 prefix([],_).
 prefix([X|L],[X|M]) :- prefix(L,M).
+
+% ex6
+quebraNoMeio(Xs, Ys, Zs) :-
+   length(Xs, N),
+   M is N - N // 2,
+   length(Ys, M),
+   append(Ys, Zs, Xs).
